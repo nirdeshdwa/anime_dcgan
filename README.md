@@ -36,19 +36,19 @@ python app.py
 ````
 ## **Output Images and GIFs**
 **CHERRY PICKED SAMPLES**
-![Cherry picked Samples](https://i.ibb.co/5GJf8WM/cherry-picked-images.jpg)
+![hippo](https://i.ibb.co/5GJf8WM/cherry-picked-images.jpg)
 
 **GIF FROM TRAINING 30 EPOCHS**
-![Training 30 epchos](https://i.ibb.co/PxFHFVP/image-anim-1.gif)
+![hippo](https://i.ibb.co/PxFHFVP/image-anim-1.gif)
 
-**LOSS PER EPOCHS TRAINING 30 EPOCHS]
-![Loss per epoch training 30 epochs](https://i.ibb.co/CBcCxMJ/Screen-Shot-2020-06-12-at-04-13-43.png)
+**LOSS PER EPOCHS TRAINING 30 EPOCHS
+![hippo](https://i.ibb.co/CBcCxMJ/Screen-Shot-2020-06-12-at-04-13-43.png)
 
 **GIF FROM TRAINING 280 EPOCHS**
-![Training 230 epchos](https://i.ibb.co/3cLGJt3/image-anim.gif)
+![hippo](https://i.ibb.co/3cLGJt3/image-anim.gif)
 
 **LOSS PER BATCH TRAINING 280 EPOCHS]
-![Loss per batch](https://i.ibb.co/J79qqnd/plot-anim.gif)
+![hippo](https://i.ibb.co/J79qqnd/plot-anim.gif)
 
 
 ----
