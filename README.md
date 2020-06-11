@@ -16,11 +16,43 @@
 * [Understaning Gradient Tape](https://www.pyimagesearch.com/2020/03/23/using-tensorflow-and-gradienttape-to-train-a-keras-model/)
 * [Guide to GAN Failure](https://machinelearningmastery.com/practical-guide-to-gan-failure-modes/)
 
----
+----
+
+## 👉 **[SUMMARY OF GAN PAPER BY ME](https://drive.google.com/file/d/1XwiY8gXDmyCQTIMbodKekD4ALAuLThgg/view?usp=sharing)**
+## 👉 **[LINK TO GOOGLE COLAB FOR THIS PROJECT](https://colab.research.google.com/drive/13URXit4-Qk4JtX-9H71loQPiNf6k2AlG?usp=sharing)**
+
+----
+## **Downloading and running the code**
+I recommend using 👉 [virtual environment](https://docs.python-guide.org/dev/virtualenvs/) 
+
+**Install the required packages using**
+````
+conda install requirements.txt
+
+````
+**Run app.py**
+````
+python app.py
+````
+## **Output Images and GIFs**
+**CHERRY PICKED SAMPLES**
+![Cherry picked Samples](https://i.ibb.co/5GJf8WM/cherry-picked-images.jpg)
+
+**GIF FROM TRAINING 30 EPOCHS**
+![Training 30 epchos](https://i.ibb.co/PxFHFVP/image-anim-1.gif)
+
+**LOSS PER EPOCHS TRAINING 30 EPOCHS]
+![Loss per epoch training 30 epochs](https://i.ibb.co/CBcCxMJ/Screen-Shot-2020-06-12-at-04-13-43.png)
+
+**GIF FROM TRAINING 280 EPOCHS**
+![Training 230 epchos](https://i.ibb.co/3cLGJt3/image-anim.gif)
+
+**LOSS PER BATCH TRAINING 280 EPOCHS]
+![Loss per batch](https://i.ibb.co/J79qqnd/plot-anim.gif)
 
 
-
-
+----
+## **CODE WALKTHROUGH**
 > 1. Most of the code are custom written, credit has been given to codes that are copied from other sources or modified from other sources.
 2. This is our first GAN as well as Tensorflow project, so the code might not look professional, however, we have tried out best to make it easy for anyone who finds the notebook easy to run the code.
 3. We have also mentioned all the problems we faced during the development to make it easy for beginners.
@@ -175,12 +207,12 @@ animation_folder = model_folder+'animation/'
 generated_sample_folder = model_folder+'generated_sample/'
 ```
 
-##**Defining Necessary Functions for working with Directories and Files**
+## **Defining Necessary Functions for working with Directories and Files**
 
 
 1.   **create_dir()**: Helps to create directory if does not exist, *args:path*
 2.   **move_files()**: Helps to move files from one directory to another, might be required in case of moving sample images
-3.**is_empty()**:Helps to see if a directory exists and is empty
+3.   **is_empty()**:Helps to see if a directory exists and is empty
 
 
 
@@ -286,7 +318,7 @@ def unnormalize_images(scaled_array,centered=True):
   return scaled_array.astype(np.uint8) #always convert to intvalue for imshow to display integer (can show 0-1 floa to 0-22 int not float)
 ```
 
-##**Saving and loading arrays**
+## **Saving and loading arrays**
 
 1. **load_images()**: load image files and save to array
 
@@ -447,7 +479,7 @@ else:
 #if you get 401-Unauthorized error go to your account in Kaggle, download new kaggle.json, and use the steps above to delete the old one and replace with new
 ```
 
-##**Unzip Dataset**##
+## **Unzip Dataset**
 
 
 ```
@@ -536,10 +568,8 @@ display_images(raw_images)
     Displaying images
     
     
+![LOADED IMAGE DATA](https://i.ibb.co/qkRDv9H/Screen-Shot-2020-06-12-at-04-10-01.png)
 
-
-
-![png](AnimeGAN_files/AnimeGAN_34_1.png)
 
 
 ## **Visualizing data**
@@ -638,7 +668,7 @@ fig12.set_title('blue values  in dataset')
 
 
 
-![png](AnimeGAN_files/AnimeGAN_36_2.png)
+![VISUALIZING DATA](https://i.ibb.co/3hf3dC2/Screen-Shot-2020-06-12-at-04-10-26.png)
 
 
 ## **Scaling and Visualizing Data**
@@ -710,8 +740,8 @@ display_images(unnormalize_images(REAL_IMAGES),start_pos = 0, cols=4, rows=4,fig
     Displaying scaled back images
 
 
+![CHECKING IF DATA IS SCALED PROPERLY](https://i.ibb.co/qnYLd7S/Screen-Shot-2020-06-12-at-04-10-41.png)
 
-![png](AnimeGAN_files/AnimeGAN_38_1.png)
 
 
 ## **Define required variables**
@@ -848,7 +878,7 @@ def build_generator_model(Z=100,WEIGHT_INIT=tf.keras.initializers.RandomNormal(m
   return model
 ```
 
-##**Visualizing the Generator Model**
+## **Visualizing the Generator Model**
 
 
 
@@ -907,7 +937,7 @@ generator.summary()
     Non-trainable params: 66,432
     _________________________________________________________________
 
-
+![GENERATOR STATE DIAGRAM](https://i.ibb.co/9GgKXfb/download-1.png)
 
 ```
 #plot a model graph that can make more complex models easier to understand.
@@ -917,7 +947,8 @@ display.Image(filename=model_summary_folder+'generator_model.png')
 
 
 
-![png](AnimeGAN_files/AnimeGAN_50_0.png)
+
+![UNTRAINED GENERATOR OUTPUT FOR NOISE SAMPLE](https://i.ibb.co/z6C5Lrq/Screen-Shot-2020-06-12-at-04-11-07.png)
 
 
 
@@ -949,7 +980,7 @@ plt.imshow(generated_image[0])#don't consider the batch
 
 
 
-![png](AnimeGAN_files/AnimeGAN_51_3.png)
+
 
 
 ## **THE DISCRIMINATOR MODEL**
@@ -1036,7 +1067,7 @@ discriminator.summary()
     Non-trainable params: 896
     _________________________________________________________________
 
-
+![DISCRIMINATOR STATE DIAGRAM](https://i.ibb.co/9GgKXfb/download-1.png)
 
 ```
 display.Image(filename=model_summary_folder+'discriminator_model.png')
@@ -1045,7 +1076,6 @@ display.Image(filename=model_summary_folder+'discriminator_model.png')
 
 
 
-![png](AnimeGAN_files/AnimeGAN_56_0.png)
 
 
 
@@ -1102,12 +1132,12 @@ def noisy_labels(y, p_flip):
 	return y
 ```
 
-##**Calculating Loss**
+## **Calculating Loss**
 
 
 > *We will use Cross-Entropy Loss*
 
-![alt text](https://i.ibb.co/5FFtmw9/1-rd-Bw0-E-My8-Gu3f-BOB6-GMA.png"
+![Corss-entropy Loss](https://i.ibb.co/5FFtmw9/1-rd-Bw0-E-My8-Gu3f-BOB6-GMA.png"
 )
 
 
@@ -1371,7 +1401,8 @@ def plot_loss(G_losses, D_losses, epoch=None,xlbl='Iterations',ylbl='Loss'):
 # %%time
 train(train_dataset, EPOCHS)
 ```
-
+![Output and losses per epoch](https://i.ibb.co/n6bZMMV/Screen-Shot-2020-06-12-at-04-13-27.png)
+![loss per epoch](https://i.ibb.co/CBcCxMJ/Screen-Shot-2020-06-12-at-04-13-43.png)
 ## **Load Checkpoint**
 
 
@@ -1438,10 +1469,7 @@ def display_image(path,epoch_no):
 display_image(output_folder,15)
 ```
 
-
-
-
-![png](AnimeGAN_files/AnimeGAN_90_0.png)
+![Output from Epoch 15](https://i.ibb.co/Ky05KRb/Screen-Shot-2020-06-12-at-05-25-11.png)
 
 
 
@@ -1453,7 +1481,7 @@ display_image(plot_folder,15)
 
 
 
-![png](AnimeGAN_files/AnimeGAN_91_0.png)
+![Plot from epoch 15](https://i.ibb.co/NZWTn92/Screen-Shot-2020-06-12-at-05-25-20.png)
 
 
 
@@ -1542,20 +1570,4 @@ download_file(plot_anim_path)
 
 ```
 
-    IPython version mismatch: (5, 5, 0, '') should be greater thatn (6,2,0,'')
-    Cannot display the animation
-
-
-
-```
-display_animation(image_animation)
-```
-
-    IPython version mismatch: (5, 5, 0, '') should be greater thatn (6,2,0,'')
-    Cannot display the animation
-
-
-
-```
-
-```
+### 🙏 Thanks for being a patient reader.
