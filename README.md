@@ -7,14 +7,14 @@
 * [Google's GAN Page](https://developers.google.com/machine-learning/gan)
 * [DCGAN Tensorflow](https://www.tensorflow.org/tutorials/generative/dcgan)
 * [Tricks for GANs](https://lanpartis.github.io/deep%20learning/2018/03/12/tricks-of-gans.html)
-*[DCGAN for 🐱 Image Generation](https://github.com/simoninithomas/CatDCGAN)
-*[DCGAN for 🐶 Image Generation](https://towardsdatascience.com/dcgans-generating-dog-images-with-tensorflow-and-keras-fb51a1071432)
-*[GAN HACKS used label smooting and noise](https://mc.ai/how-to-implement-gan-hacks-to-train-stable-generative-adversarial-networks/)
-*[GAN Loss Function](https://machinelearningmastery.com/generative-adversarial-network-loss-functions/)
-*[Comparing Loss Functions for GAN](https://medium.com/@tayyipgoren/keras-optimizers-comparison-on-gan-b8b98c3d8645)
-*[ADAM Optimizer](https://stackoverflow.com/questions/37842913/tensorflow-confusion-regarding-the-adam-optimizer)
-*[Understaning Gradient Tape](https://www.pyimagesearch.com/2020/03/23/using-tensorflow-and-gradienttape-to-train-a-keras-model/)
-*[Guide to GAN Failure](https://machinelearningmastery.com/practical-guide-to-gan-failure-modes/)
+* [DCGAN for 🐱 Image Generation](https://github.com/simoninithomas/CatDCGAN)
+* [DCGAN for 🐶 Image Generation](https://towardsdatascience.com/dcgans-generating-dog-images-with-tensorflow-and-keras-fb51a1071432)
+* [GAN HACKS used label smooting and noise](https://mc.ai/how-to-implement-gan-hacks-to-train-stable-generative-adversarial-networks/)
+* [GAN Loss Function](https://machinelearningmastery.com/generative-adversarial-network-loss-functions/)
+* [Comparing Loss Functions for GAN](https://medium.com/@tayyipgoren/keras-optimizers-comparison-on-gan-b8b98c3d8645)
+* [ADAM Optimizer](https://stackoverflow.com/questions/37842913/tensorflow-confusion-regarding-the-adam-optimizer)
+* [Understaning Gradient Tape](https://www.pyimagesearch.com/2020/03/23/using-tensorflow-and-gradienttape-to-train-a-keras-model/)
+* [Guide to GAN Failure](https://machinelearningmastery.com/practical-guide-to-gan-failure-modes/)
 
 ---
 
