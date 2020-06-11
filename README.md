@@ -1,4 +1,4 @@
-#**A DCGAN Project to Generate Anime Faces**
+# **A DCGAN Project to Generate Anime Faces**
 ## 👉 Contributors: 👨‍💻 **Nirdesh Dwa** and 👩‍💻 **Priti Zimba** 
 ### 🙏 Our sincere thanks to **Sushil Thapa** and **Kshitiz Mandal**
 ---
@@ -9,7 +9,7 @@
 * [Tricks for GANs](https://lanpartis.github.io/deep%20learning/2018/03/12/tricks-of-gans.html)
 * [DCGAN for 🐱 Image Generation](https://github.com/simoninithomas/CatDCGAN)
 * [DCGAN for 🐶 Image Generation](https://towardsdatascience.com/dcgans-generating-dog-images-with-tensorflow-and-keras-fb51a1071432)
-* [GAN HACKS used label smooting and noise](https://mc.ai/how-to-implement-gan-hacks-to-train-stable-generative-adversarial-networks/)
+* [GAN HACKS used label smoothing and noise](https://mc.ai/how-to-implement-gan-hacks-to-train-stable-generative-adversarial-networks/)
 * [GAN Loss Function](https://machinelearningmastery.com/generative-adversarial-network-loss-functions/)
 * [Comparing Loss Functions for GAN](https://medium.com/@tayyipgoren/keras-optimizers-comparison-on-gan-b8b98c3d8645)
 * [ADAM Optimizer](https://stackoverflow.com/questions/37842913/tensorflow-confusion-regarding-the-adam-optimizer)
@@ -21,8 +21,8 @@
 
 
 
-> 1. Most of the code are custom written,credit has been given to codes that are copied from other sources or modified from other sources.
-2. This is our first GAN as well as Tensorflow project, so the code might not look professional , however we have tried out best to make it easy for anyone who finds the notebook easy to run the code.
+> 1. Most of the code are custom written, credit has been given to codes that are copied from other sources or modified from other sources.
+2. This is our first GAN as well as Tensorflow project, so the code might not look professional, however, we have tried out best to make it easy for anyone who finds the notebook easy to run the code.
 3. We have also mentioned all the problems we faced during the development to make it easy for beginners.
 
 
@@ -39,8 +39,8 @@
 ## **IMPORTING REQUIRED LIBRARIES** 
 
 
-> 1. Note: Matplotlib.imread imports png as [0-1] float while jpg as [0-255] int. It is good idea to use CV2 instead for consistency.
-2. Gridspec is used in this notebook for removing the padding beween the subplots in pyplot
+> 1. Note: Matplotlib.imread imports png as [0-1] float while jpg as [0-255] int. It is a good idea to use CV2 instead of consistency.
+2. Gridspec is used in this notebook for removing the padding between the subplots in pyplot
 3. display is used to clear output in the code
 4. shutil is used for working with files
 5. plot_model for plotting the summary with states of a model
@@ -50,7 +50,7 @@
 
 
 ```
-import os#working with file system
+import os#working with the file system
 import tensorflow as tf
 import numpy as np
 from glob import glob #for working with files
@@ -60,7 +60,7 @@ import pickle as pkl
 import cv2
 import matplotlib.pyplot as plt
 import shutil #for working with files
-from google.colab import files #for uploading file into google drive
+from google.colab import files #for uploading the file into google drive
 from google.colab import drive #for connecting with google drive
 from matplotlib import image
 from matplotlib import pyplot
@@ -85,8 +85,8 @@ import IPython
 from IPython import display
 ```
 
-##**Find GPU**
-The following code helps us find GPU device name. If no GPU is available, the code will throw error message, you can neglect the message.
+## **Find GPU**
+The following code helps us find GPU device name. If no GPU is available, the code will throw an error message, you can neglect the message.
 
 
 > Google Colab provides GPU runtime for 12 hrs per day for free users, so it's a good idea to write the code without GPU and change to GPU runtime during the training.
@@ -97,7 +97,7 @@ The following code helps us find GPU device name. If no GPU is available, the co
 
 
 ```
-#check if GPU is being used
+# check if GPU is being used
 device_name = tf.test.gpu_device_name()
 if device_name != '/device:GPU:0':
   raise SystemError('GPU device not found')
@@ -107,7 +107,7 @@ print('Found GPU at: {}'.format(device_name))
     Found GPU at: /device:GPU:0
 
 
-##**Connecting Google Drive** 
+## **Connecting Google Drive** 
 
 
 1.  Import drive from colab
@@ -116,12 +116,12 @@ print('Found GPU at: {}'.format(device_name))
 4.  Login to your account
 5.  Copy the authorization key after logging in
 6.  Paste in the input field and press enter
-7.  You'll get an acknowledgement after the drive is mounted
+7.  You'll get an acknowledgment after the drive is mounted
 
 
 > Mount drive in '/content/drive'
 
-> Drive can be asccessed from the folder icon on the left or '/content/drive/My Drive'
+> Drive can be accessed from the folder icon on the left or '/content/drive/My Drive'
 
 
 
@@ -135,7 +135,7 @@ drive.mount('/content/gdrive') #connect gdrive
     Drive already mounted at /content/gdrive; to attempt to forcibly remount, call drive.mount("/content/gdrive", force_remount=True).
 
 
-##**Defining all the necessary paths**
+## **Defining all the necessary paths**
 
 
 1.   absolute_path: base path for all the folders
@@ -178,8 +178,8 @@ generated_sample_folder = model_folder+'generated_sample/'
 ##**Defining Necessary Functions for working with Directories and Files**
 
 
-1.   **create_dir()**: Helps to create directory if doesnot exist, *args:path*
-2.   **move_files()**:Helps to move files from one directory to another, mighe be required in case of moving sample images
+1.   **create_dir()**: Helps to create directory if does not exist, *args:path*
+2.   **move_files()**: Helps to move files from one directory to another, might be required in case of moving sample images
 3.**is_empty()**:Helps to see if a directory exists and is empty
 
 
@@ -236,7 +236,7 @@ def move_files(source,dest,num_of_files_to_move=None):
     print(f'{count} files moved')
 ```
 
-##**Defining Necessary Functions for working processing Images**
+## **Defining Necessary Functions for working processing Images**
 
 
 1.   **resize_images()**: Resize images and move to a new folder, *args:path*
@@ -290,8 +290,8 @@ def unnormalize_images(scaled_array,centered=True):
 
 1. **load_images()**: load image files and save to array
 
-1.   **save_array()**: save array or optionally apply a functon passed to array and save array
-2.   **load_array()**:If array is found load array or create an array and save iter
+1.   **save_array()**: save array or optionally apply a function passed to the array and save array
+2.   **load_array()**: If the array is found load array or create an array and save iter
 
 
 
@@ -327,16 +327,16 @@ def load_array(path,filename, data, datafunc = None):
 
 ```
 
-##**Displaying Images**
+## **Displaying Images**
 
 
-1.   **save_array()**: save array or optionally apply a functon passed to array and save array
-2.   **load_array()**:If array is found load array or create an array and save iter
+1.   **save_array()**: save array or optionally apply a function passed to the array and save array
+2.   **load_array()**: If an array is found load array or create an array and save iter
 
 
 
 ```
-#Displaying Images in a grid
+# Displaying Images in a grid
 def display_images(image_array,start_pos = 0, cols=4, rows=4,fig_size= (10., 10.),grid=222,pad=0): #show images
   # plt.clf()
   fig = plt.figure(figsize=fig_size)
@@ -355,10 +355,10 @@ plt.show()
 
 
 ```
-#create the project_folder if not exists
+# create the project_folder if not exists
 create_dir(project_folder)
 
-#change the working directory to project_directory
+# change the working directory to project_directory
 %cd /content/gdrive/My Drive/AnimeGAN/ 
 ```
 
@@ -368,7 +368,7 @@ create_dir(project_folder)
 
 
 ```
-#check if data directory exists and is not empty
+# check if data directory exists and is not empty
 if os.path.exists(dataset_path) or not is_empty(data_folder) :
   print('Dataset already donwnloaded, leave the codes below commented.')
 else:
@@ -384,7 +384,7 @@ else:
 
 
 
-##**Working with Kaggle in Colab with the Kaggle API for Downloading Dataset**
+## **Working with Kaggle in Colab with the Kaggle API for Downloading Dataset**
 
 > Only follow this steps 1 and 2 once, also you might not need to follow steps 3 and 4 after you have downloaded the dataset once.
 
@@ -438,13 +438,13 @@ else:
 
 
 ```
-# !kaggle datasets list -s anime-faces #view all the datasets from kaggle on anime-faces
+# !kaggle datasets list -s anime-faces #view all the datasets from Kaggle on anime-faces
 ```
 
 
 ```
 # !kaggle datasets download -d soumikrakshit/anime-faces #download anime-faces by soumikrakshit from Kaggle 
-#if you get 401-Unathourized error go to your acoount in kaggle, download new kaggle.json, and use the steps above to delete the old one and replace with new
+#if you get 401-Unauthorized error go to your account in Kaggle, download new kaggle.json, and use the steps above to delete the old one and replace with new
 ```
 
 ##**Unzip Dataset**##
@@ -458,13 +458,13 @@ else:
 ```
 
     Directory exists
-    Directory is not empty
+    The directory is not empty
     Leave the code below commented
 
 
 
 ```
-# !unzip anime-faces.zip #unzip the downloaded dataset; gets unzipped to folder named data
+# !unzip anime-faces.zip #unzip the downloaded dataset; gets unzipped to a folder named data
 ```
 
 
@@ -486,10 +486,10 @@ if is_empty(sampled_folder):
 ```
 
     Directory exists
-    Directory is not empty
+    The directory is not empty
 
 
-##**Image to Array**##
+## **Image to Array**
 
 
 ```
@@ -505,11 +505,11 @@ raw_images = load_array(array_folder,'raw_images.npy',data_folder,load_images) #
 print(f'Dimensions of image array: {raw_images.shape}')
 ```
 
-    Backup file exists. Loading from the backup file.
+    A backup file exists. Loading from the backup file.
     Dimensions of image array: (20383, 64, 64, 3)
 
 
-##**Display Images**
+## **Display Images**
 
 
 ```
@@ -542,7 +542,7 @@ display_images(raw_images)
 ![png](AnimeGAN_files/AnimeGAN_34_1.png)
 
 
-##**Visualizing data**
+## **Visualizing data**
 
 
 ```
@@ -641,7 +641,7 @@ fig12.set_title('blue values  in dataset')
 ![png](AnimeGAN_files/AnimeGAN_36_2.png)
 
 
-##**Scaling and Visualizing Data**
+## **Scaling and Visualizing Data**
 
 
 ```
@@ -677,7 +677,7 @@ display_images(unnormalize_images(REAL_IMAGES),start_pos = 0, cols=4, rows=4,fig
 
 ```
 
-    Backup file exists. Loading from the backup file.
+    A backup file exists. Loading from the backup file.
     ---------------------------------------------------------------------------------------------------
     Scaled Images
     Min value after scaling: -1.0
@@ -714,7 +714,7 @@ display_images(unnormalize_images(REAL_IMAGES),start_pos = 0, cols=4, rows=4,fig
 ![png](AnimeGAN_files/AnimeGAN_38_1.png)
 
 
-##**Define required variables**
+## **Define required variables**
 
 
 ```
@@ -726,7 +726,7 @@ BATCH_SIZE = 32
 # Weight initializers for the Generator network
 WEIGHT_INIT = tf.keras.initializers.RandomNormal(mean=0.0, stddev=0.2)
 
-# Image dimensions, generator outputs 64x64 size image while the discriminator expects a 64x64
+# Image dimensions, the generator outputs 64x64 size image while the discriminator expects a 64x64
 DIM = 64
 
 # Variables needed for the training part
@@ -737,13 +737,13 @@ NUM_OF_EXAMPLES_TO_GENERATE = 16
 # Noise Vector to test models
 NOISE = tf.random.normal([1,100])
 
-# We will reuse this seed overtime (so it's easier)
+# We will reuse this seed over time (so it's easier)
 # to visualize progress in the animated GIF)
 seed = tf.random.normal([NUM_OF_EXAMPLES_TO_GENERATE, NOISE_DIM])
 ```
 
-##**Casting float64 to float32**
->As gradient functions from Tensorflow requires floate32, so we have to type caste float64 to float32
+## **Casting float64 to float32**
+>As gradient functions from Tensorflow require floate32, so we have to type caste float64 to float32
 
 
 ```
@@ -751,7 +751,7 @@ seed = tf.random.normal([NUM_OF_EXAMPLES_TO_GENERATE, NOISE_DIM])
 REAL_IMAGES = tf.cast(REAL_IMAGES, 'float32')
 ```
 
-##**Creting batch and suffling the data**
+## **Creating batch and shuffling the data**
 
 
 ```
@@ -783,7 +783,7 @@ train_dataset = tf.data.Dataset.from_tensor_slices(REAL_IMAGES).shuffle(BUFFER_S
 
 
 
-##**GENERATOR MODEL**
+## **GENERATOR MODEL**
 
 
 > The generator part of a GAN learns to create fake data by incorporating feedback from the discriminator. It learns to make the discriminator classify its output as real.
@@ -952,7 +952,7 @@ plt.imshow(generated_image[0])#don't consider the batch
 ![png](AnimeGAN_files/AnimeGAN_51_3.png)
 
 
-##**THE DISCRIMINATOR MODEL**
+## **THE DISCRIMINATOR MODEL**
 
 
 > The discriminator in a GAN is simply a classifier. It tries to distinguish real data from the data created by the generator. It could use any network architecture appropriate to the type of data it's classifying.
@@ -1060,7 +1060,7 @@ print(decision)
     tf.Tensor([[3.1680302e-31]], shape=(1, 1), dtype=float32)
 
 
-##**Use Label Smoothing**
+## **Use Label Smoothing**
 [code credit](https://mc.ai/how-to-implement-gan-hacks-to-train-stable-generative-adversarial-networks/)
 >It is common to use the class label 1 to represent real images and class label 0 to represent fake images when training the discriminator model.These are called hard labels, as the label values are precise or crisp.
 
@@ -1078,7 +1078,7 @@ def smooth_negative_labels(y):
 	return y + np.random.random(y.shape) * 0.5
 ```
 
-##**Use Noisy Labels**
+## **Use Noisy Labels**
 
 [code credit](https://mc.ai/how-to-implement-gan-hacks-to-train-stable-generative-adversarial-networks/)
 
@@ -1105,13 +1105,13 @@ def noisy_labels(y, p_flip):
 ##**Calculating Loss**
 
 
-> *We will use Cross Entropy Loss*
+> *We will use Cross-Entropy Loss*
 
 ![alt text](https://i.ibb.co/5FFtmw9/1-rd-Bw0-E-My8-Gu3f-BOB6-GMA.png"
 )
 
 
-> Here 1 labeled for real images and 0 for fake image. The generator has nothing to do with last part of the equation as it has nothing to do with real images.
+> Here 1 labeled for real images and 0 for the fake image. The generator has nothing to do with the last part of the equation as it has nothing to do with real images.
 
 [
 Explanation Here](https://machinelearningmastery.com/generative-adversarial-network-loss-functions/)
@@ -1133,7 +1133,7 @@ Explanation Here](https://machinelearningmastery.com/generative-adversarial-netw
 cross_entropy = tf.keras.losses.BinaryCrossentropy(from_logits=False)
 ```
 
-##**Converting Values**
+## **Converting Values**
 
 * **tf.ones_like()** converts all the values in the provided tesnor to 1
 
@@ -1173,9 +1173,9 @@ generator_optimizer = tf.keras.optimizers.Adam(learning_rate=0.0002, beta_1=0.5)
 discriminator_optimizer =  tf.keras.optimizers.Adam(learning_rate=0.0002, beta_1=0.5)
 ```
 
-##**Save checkpoints**
+## **Save checkpoints**
 
-Use checkpoints to save and restore models, which can be helpful in case a long running training task is interrupted.
+Use checkpoints to save and restore models, which can be helpful in case a long-running training task is interrupted.
 
 
 ```
@@ -1188,21 +1188,21 @@ checkpoint = tf.train.Checkpoint(generator_optimizer=generator_optimizer,
                                  discriminator=discriminator)
 ```
 
-##**Define the training loop**
->The training loop begins with generator receiving a random seed as input. That seed is used to produce an image. The discriminator is then used to classify real images (drawn from the training set) and fakes images (produced by the generator). The loss is calculated for each of these models, and the gradients are used to update the generator and discriminator.
+## **Define the training loop**
+>The training loop begins with the generator receiving a random seed as input. That seed is used to produce an image. The discriminator is then used to classify real images (drawn from the training set) and fakes images (produced by the generator). The loss is calculated for each of these models, and the gradients are used to update the generator and discriminator.
 
-> The train step function will be called iteratviely in the function, which creates noise vectors. No of Vectors: BATCH_SIZE, Length of Vector: NOISE_DIM defined earlier.
+> The train step function will be called iteratively in the function, which creates noise vectors. No of Vectors: BATCH_SIZE, Length of Vector: NOISE_DIM defined earlier.
 
->[Gradient Tape](https://www.pyimagesearch.com/2020/03/23/using-tensorflow-and-gradienttape-to-train-a-keras-model/) is a tensorlfow function for Automatic Differntiation.
+>[Gradient Tape](https://www.pyimagesearch.com/2020/03/23/using-tensorflow-and-gradienttape-to-train-a-keras-model/) is a TensorFlow function for Automatic Differentiation.
 
-##What is AD?
+## What is AD?
 
 * computer has primitive operations available (e.g. addition, multiplication, logarithm)
 * so every complicated function can be written as a composition of these primitive functions
 * each primitive function has a simple derivative
-* AD are a set of techniques using this logic of simple derivatives of composed functions Read this article
+* AD is a set of techniques using this logic of simple derivatives of composed functions Read this article
 
-**Tensorflow "records" all the operations executed inside the context of a tf.GradientTape onto to a "tape". Using that "tape" and the gradients associated with recorded operation, tensorflow computes the gradients of a "recorded" computation using reverse mode differentiaion**
+**Tensorflow "records" all the operations executed inside the context of a tf.GradientTape onto to a "tape". Using that "tape" and the gradients associated with the recorded operation, TensorFlow computes the gradients of a "recorded" computation using reverse mode differentiation**
 
 
 
@@ -1311,7 +1311,7 @@ def train(dataset, epochs):
     generate_and_save_images(generator,epochs,seed)
 ```
 
-##**Generate and save images**
+## **Generate and save images**
 
 
 ```
@@ -1344,7 +1344,7 @@ def generate_and_save_images(model, epoch, test_input):
   plt.show()
 ```
 
-##**Plotting Loss**
+## **Plotting Loss**
 
 Modified from [this code](https://towardsdatascience.com/dcgans-generating-dog-images-with-tensorflow-and-keras-fb51a1071432)
 
@@ -1372,14 +1372,14 @@ def plot_loss(G_losses, D_losses, epoch=None,xlbl='Iterations',ylbl='Loss'):
 train(train_dataset, EPOCHS)
 ```
 
-##**Load Checkpoint**
+## **Load Checkpoint**
 
 
 ```
 # checkpoint.restore(tf.train.latest_checkpoint(checkpoint_folder))
 ```
 
-##**Save Model**
+## **Save Model**
 
 
 ```
@@ -1395,7 +1395,7 @@ tf.keras.models.save_model(
 
 ```
 
-##**Generate and Save images images to a zip file**
+## **Generate and Save images to a zip file**
 
 
 ```
@@ -1424,7 +1424,7 @@ def generate_and_save_images(filename='generated_images.zip',path='./',count=100
 generate_and_save_images('generated_images.zip',generated_sample_folder,1000)
 ```
 
-##**View image from any epoch**
+## **View image from any epoch**
 
 
 ```
@@ -1457,7 +1457,7 @@ display_image(plot_folder,15)
 
 
 
-##**Use imageio to create an animated gif using the images saved during training.**
+## **Use imageio to create an animated gif using the images saved during training.**
 
 
 ```
@@ -1510,7 +1510,7 @@ def display_animation(file):
     print('Cannot display the animation')
 ```
 
-##**Download animation file**
+## **Download animation file**
 
 
 ```
@@ -1524,7 +1524,7 @@ def download_file(path):
     files.download(path)
 ```
 
-##**Creating, Displaying and Saving generated image animation and plot animation**
+## **Creating, Displaying and Saving generated image animation and plot animation**
 
 
 ```
