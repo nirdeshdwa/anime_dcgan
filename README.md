@@ -36,19 +36,24 @@ python app.py
 ````
 ## **Output Images and GIFs**
 **CHERRY PICKED SAMPLES**
-![hippo](https://i.ibb.co/5GJf8WM/cherry-picked-images.jpg)
+
+![CHERRY PICKED SAMPLES](https://i.ibb.co/5GJf8WM/cherry-picked-images.jpg)
 
 **GIF FROM TRAINING 30 EPOCHS**
-![hippo](https://i.ibb.co/PxFHFVP/image-anim-1.gif)
 
-**LOSS PER EPOCHS TRAINING 30 EPOCHS
-![hippo](https://i.ibb.co/CBcCxMJ/Screen-Shot-2020-06-12-at-04-13-43.png)
+![GIF FROM TRAINING 30 EPOCHS](https://media.giphy.com/media/lpt5fsbt9Qg2Xg5xO7/source.gif.gif)
+
+**LOSS PER EPOCHS TRAINING 30 EPOCHS**
+
+![LOSS PER EPOCHS TRAINING 30 EPOCHS](https://i.ibb.co/CBcCxMJ/Screen-Shot-2020-06-12-at-04-13-43.png)
 
 **GIF FROM TRAINING 280 EPOCHS**
-![hippo](https://i.ibb.co/3cLGJt3/image-anim.gif)
 
-**LOSS PER BATCH TRAINING 280 EPOCHS]
-![hippo](https://i.ibb.co/J79qqnd/plot-anim.gif)
+![GIF FROM TRAINING 280 EPOCHS](https://media.giphy.com/media/QU3KEhA6Y1Wt07YDFS/source.gif.gif)
+
+**LOSS PER BATCH TRAINING 280 EPOCHS**
+
+![LOSS PER BATCH TRAINING 280 EPOCHS](https://media.giphy.com/media/j3hTZFk7Y1s3rAwq8u/source.gif)
 
 
 ----
