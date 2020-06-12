@@ -120,9 +120,9 @@ p {
   display: inline-block;
   background-color: #fff;
   border-radius: 11px;
-  box-shadow: 2px 22px 43px rgba(4, 4, 7, 0.18);
-  -moz-box-shadow: 2px 22px 43px rgba(171, 171, 180, 0.18);
-  -webkit-box-shadow: 2px 22px 43px rgba(171, 171, 180, 0.18);
+  box-shadow: 2px 22px 43px rgba(4, 4, 7, 0.45);
+  -moz-box-shadow: 2px 22px 43px rgba(171, 171, 180, 0.45);
+  -webkit-box-shadow: 2px 22px 43px rgba(171, 171, 180, 0.45);
 }
 
 .square:after {
