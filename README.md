@@ -1037,7 +1037,7 @@ def build_discriminator_model(WEIGHT_INIT=tf.keras.initializers.RandomNormal(mea
 #create instance of discriminator model
 discriminator = build_discriminator_model()
 #create png file of the summary with states and save to the designated folder
-tf.keras.utils.plot_model(generator, to_file=model_summary_folder+'discriminator_model.png', show_shapes=True, show_layer_names=True,rankdir='TB')
+tf.keras.utils.plot_model(discriminator, to_file=model_summary_folder+'discriminator_model.png', show_shapes=True, show_layer_names=True,rankdir='TB')
 discriminator.summary()
 ```
 
@@ -1072,7 +1072,7 @@ discriminator.summary()
     Non-trainable params: 896
     _________________________________________________________________
 
-![DISCRIMINATOR STATE DIAGRAM](https://i.ibb.co/9GgKXfb/download-1.png)
+![DISCRIMINATOR STATE DIAGRAM](https://i.ibb.co/Gsz3kRH/discriminator.png)
 
 ```
 display.Image(filename=model_summary_folder+'discriminator_model.png')
