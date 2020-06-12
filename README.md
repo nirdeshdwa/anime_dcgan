@@ -41,7 +41,7 @@ python app.py
 
 **GIF FROM TRAINING 30 EPOCHS**
 
-![GIF FROM TRAINING 30 EPOCHS](https://media.giphy.com/media/lpt5fsbt9Qg2Xg5xO7/source.gif.gif)
+![GIF FROM TRAINING 30 EPOCHS](https://media.giphy.com/media/lpt5fsbt9Qg2Xg5xO7/source.gif)
 
 **LOSS PER EPOCHS TRAINING 30 EPOCHS**
 
@@ -49,7 +49,7 @@ python app.py
 
 **GIF FROM TRAINING 280 EPOCHS**
 
-![GIF FROM TRAINING 280 EPOCHS](https://media.giphy.com/media/QU3KEhA6Y1Wt07YDFS/source.gif.gif)
+![GIF FROM TRAINING 280 EPOCHS](https://media.giphy.com/media/QU3KEhA6Y1Wt07YDFS/source.gif)
 
 **LOSS PER BATCH TRAINING 280 EPOCHS**
 
