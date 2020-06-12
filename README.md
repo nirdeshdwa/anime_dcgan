@@ -27,7 +27,7 @@ I recommend using 👉 [virtual environment](https://docs.python-guide.org/dev/v
 
 **Install the required packages using**
 ````
-conda install requirements.txt
+pip3 install -r requirements.txt
 
 ````
 **Run app.py**
