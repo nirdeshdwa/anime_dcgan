@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Anime GAN</title> 
+    <link href="{{ url_for('static', filename='css/style.css') }}"  rel='stylesheet'/>
+    <link rel="shortcut icon" type="image/jpg" href="{{ url_for('static', filename='img/favicon.png') }}"/>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<h2>A DCGAN EXPERIMENT</h2>
+<h3>WITH ANIME FACES</h3>
+<p><b>Contributors: </b>Nirdesh Dwa & Priti Zimba</p>
+<div class="img-align">
+  <div class="img-holder"></div>
+</div>
+<div class="bg" style='background-image:url("..{{ url_for('static', filename='img/bg.jpg') }}")'>
+      <div ></div>
+</div>
+    <div id='loader-text' style="display:none;color:#666">Generating Images (8X8)</div>
+
+<button id="btn">Generate </button>
+<a href='https://github.com/nirdeshdwa/anime_dcgan' class='lm'>Learn More</a>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+   
+
+    $(document).ready(function(){
+  
+      $("#btn").click(function(){
+        var search = $('#search').val();
+
+        $.ajax({
+        url: '/generate',
+        type: 'post',
+        beforeSend: function(){
+
+          $("#loader").show();
+          $("#loader-text").show();
+        },
+         success: function(data) {
+           
+                 $(".img-holder").css("background-image", "url(../static/generated_images/" + data + ")");
+            },
+        complete:function(data){
+          // Hide image container
+          $("#loader").hide();
+          $("#loader-text").hide();
+        }
+        });
+    
+      });   
+    });
+</script>
+  <div id='loader' style='display:none;position:absolute;z-index:100;top:calc(50% - 30px);left:calc(50% - 30px)'>
+    <img src="{{ url_for('static', filename='img/loader.gif') }}" width='60px' height='60px'>
+  </div>
+  
+</body>
+</html>
