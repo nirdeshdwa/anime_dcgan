@@ -35,6 +35,7 @@ python app.py
 ````
 
 **Find the served template**
+
 Go to the flollowing location on your browser
 ````
 localhos:5000
