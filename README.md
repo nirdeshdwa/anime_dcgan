@@ -25,6 +25,38 @@
 ## **Downloading and running the code**
 I recommend using 👉 [virtual environment](https://docs.python-guide.org/dev/virtualenvs/) 
 
+Virtual environment is an isolated space for your project. It makes managing dependencies, depoyment and sharing of code whole lot easier. It basically does two things:
+1. Keep the dependencies of each project isolated from eachother.
+2. Make sure your install dependencies will affect the system.
+
+**Install Virtual Environment **
+
+Note: If you are using python3, you should already have venv module.
+````
+$ pip install virtualenv
+````
+**Creating Virtual Environment**
+
+Note: Enter the anime_dcgan inside AnimeGAN directory and run the code
+````
+# Python 2:
+$ virtualenv animegan_env
+
+# Python 3
+$ python3 -m venv animegan_env
+````
+**Activate the virtual environment**
+````
+source animegan_env/bin/activate
+````
+
+**Stop using the virtual environment**
+
+Note: Do not do it now, do it when you have completed the task and need to stop the virual environment
+````
+deactivate
+````
+
 **Install the required packages using**
 ````
 pip3 install -r requirements.txt
