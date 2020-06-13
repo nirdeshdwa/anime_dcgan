@@ -68,7 +68,7 @@ $ python app.py
 
 **Find the served template**
 
-Flask will be running on your localhost at port 50000, type the address on your browser
+Flask will be running on your localhost at port 5000, type the address on your browser
 ````
 localhost:5000
 ````
