@@ -28,11 +28,16 @@ I recommend using 👉 [virtual environment](https://docs.python-guide.org/dev/v
 **Install the required packages using**
 ````
 pip3 install -r requirements.txt
-
 ````
 **Run app.py**
 ````
 python app.py
+````
+
+**Find the served template**
+Go to the flollowing location on your browser
+````
+localhos:5000
 ````
 ## **Output Images and GIFs**
 **CHERRY PICKED SAMPLES**
