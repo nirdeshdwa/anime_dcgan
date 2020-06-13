@@ -47,23 +47,23 @@ $ python3 -m venv animegan_env
 ````
 **Activate the virtual environment**
 ````
-source animegan_env/bin/activate
+$ source animegan_env/bin/activate
 ````
 
 **Stop using the virtual environment**
 
 Note: Do not do it now, do it when you have completed the task and need to stop the virual environment
 ````
-deactivate
+$ deactivate
 ````
 
 **Install the required packages using**
 ````
-pip3 install -r requirements.txt
+$ pip3 install -r requirements.txt
 ````
 **Run app.py**
 ````
-python app.py
+$ python app.py
 ````
 
 **Find the served template**
