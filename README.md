@@ -68,9 +68,9 @@ $ python app.py
 
 **Find the served template**
 
-Go to the flollowing location on your browser
+Flask will be running on your localhost at port 50000, type the address on your browser
 ````
-localhos:5000
+localhost:5000
 ````
 ## **Output Images and GIFs**
 **CHERRY PICKED SAMPLES**
