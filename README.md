@@ -29,7 +29,7 @@ Virtual environment is an isolated space for your project. It makes managing dep
 1. Keep the dependencies of each project isolated from eachother.
 2. Make sure your install dependencies will affect the system.
 
-**Install Virtual Environment **
+**Install Virtual Environment**
 
 Note: If you are using python3, you should already have venv module.
 ````
